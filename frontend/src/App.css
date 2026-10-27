@@ -1,0 +1,385 @@
+/* ==========================================
+   CHAT LAYOUT — ChatGPT-style alignment
+   ========================================== */
+
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.message-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* User messages appear on the right */
+.message-row.user-message {
+  flex-direction: row-reverse;
+}
+
+/* AI messages appear on the left */
+.message-row.assistant-message {
+  flex-direction: row;
+}
+
+.message-avatar {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 13px;
+  color: #c6a0ff;
+  background: #21172f;
+  border: 1px solid rgba(176, 125, 255, 0.2);
+}
+
+.user-message .message-avatar {
+  color: #e5d8ff;
+  background: #30243f;
+}
+
+.message-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: min(82%, 720px);
+  min-width: 0;
+}
+
+.user-message .message-content-wrapper {
+  align-items: flex-end;
+}
+
+.assistant-message .message-content-wrapper {
+  align-items: flex-start;
+}
+
+.message-sender {
+  margin: 2px 0 7px;
+  padding: 0 2px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #bba7db;
+}
+
+.user-message .message-sender {
+  text-align: right;
+}
+
+.message-bubble {
+  width: fit-content;
+  max-width: 100%;
+  min-width: 0;
+  padding: 13px 17px;
+  border-radius: 17px;
+  font-size: 15.5px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.user-message .message-bubble {
+  color: #ffffff;
+  background: linear-gradient(135deg, #8245d0, #60329a);
+  border: 1px solid rgba(200, 160, 255, 0.15);
+  border-top-right-radius: 5px;
+}
+
+.assistant-message .message-bubble {
+  color: #f0edf6;
+  background: #1d1c24;
+  border: 1px solid #302e39;
+  border-top-left-radius: 5px;
+}
+
+/* ==========================================
+   COMPACT MARKDOWN — Less empty space
+   ========================================== */
+
+.markdown-content {
+  width: 100%;
+  color: inherit;
+  font-size: inherit;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.markdown-content> :first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-content> :last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-content p {
+  margin: 0 0 9px;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4 {
+  margin: 13px 0 7px;
+  padding: 0;
+  color: #f5f0ff;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.markdown-content h1 {
+  font-size: 1.25em;
+}
+
+.markdown-content h2 {
+  font-size: 1.15em;
+}
+
+.markdown-content h3,
+.markdown-content h4 {
+  font-size: 1.04em;
+}
+
+.markdown-content strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.markdown-content em {
+  font-style: italic;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin: 5px 0 10px;
+  padding-left: 23px;
+}
+
+.markdown-content li {
+  margin: 3px 0;
+  padding-left: 2px;
+}
+
+.markdown-content li>p {
+  margin: 0;
+}
+
+.markdown-content li>ul,
+.markdown-content li>ol {
+  margin: 3px 0;
+}
+
+.markdown-content hr {
+  height: 1px;
+  margin: 13px 0;
+  border: 0;
+  background: #393641;
+}
+
+.markdown-content blockquote {
+  margin: 10px 0;
+  padding: 7px 12px;
+  border-left: 3px solid #a879ff;
+  border-radius: 4px;
+  background: rgba(168, 121, 255, 0.07);
+}
+
+.markdown-content blockquote> :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-content a {
+  color: #c5a0ff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.markdown-content code {
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.09);
+  font-family: Consolas, monospace;
+  font-size: 0.9em;
+}
+
+.markdown-content pre {
+  max-width: 100%;
+  margin: 9px 0;
+  padding: 12px;
+  overflow-x: auto;
+  border-radius: 8px;
+  background: #111116;
+}
+
+.markdown-content pre code {
+  padding: 0;
+  background: transparent;
+}
+
+.markdown-table-wrapper {
+  width: 100%;
+  margin: 10px 0;
+  overflow-x: auto;
+}
+
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92em;
+}
+
+.markdown-content th,
+.markdown-content td {
+  padding: 7px 10px;
+  border: 1px solid #3a3645;
+  text-align: left;
+}
+
+.markdown-content th {
+  background: rgba(168, 121, 255, 0.12);
+  font-weight: 700;
+}
+
+/* ==========================================
+   ATTRACTIVE FEEDBACK BUTTONS
+   ========================================== */
+
+.message-feedback {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 9px;
+}
+
+.feedback-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  color: #aaa4bb;
+  background: #1b1a22;
+  border: 1px solid #34313e;
+  border-radius: 11px;
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.feedback-button:hover {
+  color: #e7d6ff;
+  background: #2a2138;
+  border-color: #7850aa;
+  transform: translateY(-1px);
+}
+
+.feedback-button:active {
+  transform: scale(0.94);
+}
+
+.feedback-button.selected.positive {
+  color: #72e3b0;
+  background: rgba(55, 190, 135, 0.12);
+  border-color: rgba(55, 190, 135, 0.45);
+}
+
+.feedback-button.selected.negative {
+  color: #ff929f;
+  background: rgba(245, 90, 115, 0.12);
+  border-color: rgba(245, 90, 115, 0.45);
+}
+
+.feedback-button:focus-visible {
+  outline: 2px solid #bd91ff;
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   SOURCE CARDS
+   ========================================== */
+
+.message-sources {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 11px;
+  padding: 12px;
+  border: 1px solid #302d38;
+  border-radius: 12px;
+  background: #19181f;
+}
+
+.sources-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 9px;
+  color: #c5a0ff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.source-item {
+  margin-top: 7px;
+  padding: 9px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.source-name {
+  color: #c5a0ff;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.source-page {
+  display: inline-block;
+  margin-top: 4px;
+  color: #c1b8d0;
+  font-size: 13px;
+}
+
+/* ==========================================
+   SMALL SCREENS
+   ========================================== */
+
+@media (max-width: 600px) {
+  .messages-list {
+    gap: 19px;
+  }
+
+  .message-row {
+    gap: 8px;
+  }
+
+  .message-avatar {
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+  }
+
+  .message-content-wrapper {
+    max-width: calc(100% - 40px);
+  }
+
+  .message-bubble {
+    padding: 11px 13px;
+    font-size: 14px;
+  }
+
+  .markdown-content {
+    line-height: 1.6;
+  }
+}
